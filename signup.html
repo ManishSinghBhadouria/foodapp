@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>| Sign-up |</title>
+    </head>
+
+    <body>
+        <form action="" id="myform">
+            <input type="email" placeholder="Enter Email" id="name">
+            <input type="password" placeholder="password" id="email">
+        </form>
+        <button onclick="show()">submit</button>
+    </body>
+
+</html>
+<script>
+    function show() {
+        let form = document.getElementById('myform')
+        var email = document.getElementById('name').value
+        var password = document.getElementById('email').value
+        let user = {
+            email:email,
+            password:password
+        }
+        let arr = localStorage.getItem('users')
+        if(arr==null)
+        arr=[]
+        else
+        arr = JSON.parse(localStorage.getItem('users'))
+                arr.push(user)
+                console.log(arr)
+                localStorage.setItem('users', JSON.stringify(arr))
+                alert('Successfull Signup')
+    
+    }
+
+</script>

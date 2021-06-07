@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| Food |</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+        *{
+            
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            width: 97vw;
+            padding-left: 20px;
+            padding-right: 20px;
+            justify-content: space-evenly;
+            border: 2px solid black;
+            }
+            .logo > img{
+                width: 30px;
+                height: 30px;
+            }
+            .logo{
+                width: 70%;
+                float: left;
+            }
+            .list{
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-gap: 20px;
+                float: right;
+                padding: 5px;
+            }
+            .list > button{
+                width: 100px;
+                height: 44px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                font-size: 20px;
+                font-weight: 600;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/fast-food-1851561-1569286.png" alt="">
+            <h3>Food Delivery</h3>
+        </div>
+        <div>
+            <!-- <h1>Food Delivery App</h1> -->
+        </div>
+        <div class="list">
+            <button onclick="showmenu()">Menu</button>
+            <button onclick="showlogin()">Login</button>
+            <button onclick="showsignup()">Sign-Up</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function showlogin(){
+        window.location.href = 'login.html';
+    }
+    function showsignup() {
+            window.location.href = 'signup.html';
+        }
+        function showmenu() {
+                window.location.href = 'menu.html';
+            }
+</script>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| MENU |</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        #parent{
+            display: grid;
+            padding: 10px;
+            width: 95vw;
+            grid-gap: 20px;
+            grid-template-columns: 25% 25% 25% 25%;
+        }
+        #parent > div{
+            box-shadow: 1px 1px gray;
+            padding: 5px;
+            border-radius: 7px;
+        }
+        #parent > div:hover{
+            border: 2px solid black;
+        }
+        #parent > div > img{
+            width: 100%;
+            height: 300px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="parent"></div>
+</body>
+</html>
+
+<script>
+    let dishes = [
+        {
+            id:1,
+            name:"Maggi",
+            image:"https://im.rediff.com/getahead/2020/sep/29burnt-garlic-chilli-maggi.jpg",
+            price:62,
+            time:"2-minute",
+            desc:"The Best Maggi We Prepares in 2-Minutes"
+        },
+        {
+            id: 2,
+            name: "Maggi",
+            image: "https://im.rediff.com/getahead/2020/sep/29burnt-garlic-chilli-maggi.jpg",
+            price: 62,
+            time: "2-minute",
+            desc: "The Best Maggi We Prepares in 2-Minutes"
+        },
+        {
+            id: 3,
+            name: "Maggi",
+            image: "https://im.rediff.com/getahead/2020/sep/29burnt-garlic-chilli-maggi.jpg",
+            price: 62,
+            time: "2-minute",
+            desc: "The Best Maggi We Prepares in 2-Minutes"
+        },
+        {
+            id: 4,
+            name: "Maggi",
+            image: "https://im.rediff.com/getahead/2020/sep/29burnt-garlic-chilli-maggi.jpg",
+            price: 62,
+            time: "2-minute",
+            desc: "The Best Maggi We Prepares in 2-Minutes"
+        },
+        {
+            id: 5,
+            name: "Maggi",
+            image: "https://im.rediff.com/getahead/2020/sep/29burnt-garlic-chilli-maggi.jpg",
+            price: 62,
+            time: "2-minute",
+            desc: "The Best Maggi We Prepares in 2-"
+        }
+    ]
+    
+    function showdishes(dishes){
+        let parent = document.getElementById('parent')
+        for(var i=0;i<dishes.length;i++){
+            let div = document.createElement('div')
+            div.setAttribute("style","")
+            let img = document.createElement('img')
+            let name = document.createElement('p')
+            let price = document.createElement('p')
+            let time = document.createElement('p')
+            let desc = document.createElement('p')
+            img.src = dishes[i].image;
+            name.innerHTML ="Name : " + dishes[i].name;
+            price.innerHTML ="Price : " + dishes[i].price;
+            time.innerHTML = "Time to Prepare : " +dishes[i].time;
+            desc.innerHTML = "Description : " +dishes[i].desc;
+            let btn = document.createElement('button')
+            btn.textContent = 'Add To Cart'
+            btn.setAttribute("style", "width:100%;cursor:pointer;")
+            btn.onclick =function(dishes){
+                let arr = localStorage.getItem('cart')
+                if (arr == null)
+                    arr = []
+                else
+                    arr = JSON.parse(localStorage.getItem('cart'))
+                    arr.push(dishes[i])
+                    localStorage.setItem('cart',JSON.stringify(arr))
+            }
+                
+            
+            div.append(img,name,price,time,desc,btn)
+            parent.append(div)
+        }
+    }
+    showdishes(dishes)
+
+    // ------------------------------------------------------------------------------------------------------------------------
+</script>

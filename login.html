@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| Login |</title>
+</head>
+<body>
+    <form action="" id="myform">
+        <input type="email" placeholder="Enter Email" id="name">
+        <input type="password" placeholder="password" id="email">
+    </form>
+    <button onclick="show()">submit</button>
+</body>
+</html>
+<script>
+    function show(){
+        var email = document.getElementById('name').value
+        var password = document.getElementById('email').value
+        
+           let arr = JSON.parse(localStorage.getItem('users'))
+            console.log(arr)
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].email == email && arr[i].password == password){
+                    var found =true;
+                    break;
+                }else{
+                    var found=false;
+            }
+            }
+            if(found){
+                
+                alert('successfully Login')
+                window.location.href = 'menu.html'
+            }else{
+                
+                alert('Wrong Credentials')
+                window.location.href = 'login.html'
+            }
+        
+    }
+    
+</script>
